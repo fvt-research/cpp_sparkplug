@@ -29,6 +29,7 @@ The following build flags are supported:
 | CPP_SPARKPLUG_PAHO_SYNC | ON | Whether to compile PAHO Sync clients. |
 | CPP_SPARKPLUG_MQTT | ON | Whether to compile CPP MQTT clients. |
 | CPP_SPARKPLUG_EXAMPLES | ON | Whether to compile examples. |
+| CPP_SPARKPLUG_PAHO_SSL | ON | Whether to compile examples. |
 
 ## Dependencies
 The following dependencies will be pulled and built by cmake:

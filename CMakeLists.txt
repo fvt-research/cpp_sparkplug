@@ -12,6 +12,7 @@ SET(CPP_SPARKPLUG_PAHO_ASYNC ON CACHE BOOL "")
 SET(CPP_SPARKPLUG_PAHO_SYNC ON CACHE BOOL "")
 SET(CPP_SPARKPLUG_EXAMPLES ON CACHE BOOL "")
 SET(CPP_SPARKPLUG_MQTT ON CACHE BOOL "")
+SET(CPP_SPARKPLUG_PAHO_SSL ON CACHE BOOL "")
 
 IF(DEFINED ENV{FETCH_REMOTE})
     SET(FETCH_REMOTE $ENV{FETCH_REMOTE})
@@ -113,7 +114,7 @@ IF(CPP_SPARKPLUG_PAHO_SYNC OR CPP_SPARKPLUG_PAHO_ASYNC)
         OPTIONS
         "PAHO_BUILD_STATIC ${CPP_SPARKPLUG_STATIC}"
         "PAHO_BUILD_SHARED ${CPP_SPARKPLUG_SHARED}"
-        "PAHO_WITH_SSL FALSE"
+        "PAHO_WITH_SSL ${CPP_SPARKPLUG_PAHO_SSL}"
         "PAHO_HIGH_PERFORMANCE TRUE"
         "PAHO_BUILD_SAMPLES FALSE"
         "PAHO_ENABLE_TESTING FALSE"
@@ -140,12 +141,12 @@ IF(CPP_SPARKPLUG_PAHO_SYNC OR CPP_SPARKPLUG_PAHO_ASYNC)
         IF(CPP_SPARKPLUG_STATIC)
             target_link_libraries(
                 cpp_sparkplug
-                paho-mqtt3a-static
+                paho-mqtt3as-static
             )
         ELSE()
             target_link_libraries(
                 cpp_sparkplug
-                paho-mqtt3a
+                paho-mqtt3as
             )
         ENDIF()
     ENDIF()
